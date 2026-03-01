@@ -6,7 +6,7 @@ export default function Navbar() {
           <img
             src="/matchibigicon.png"
             alt="Matchi"
-            className="h-[32px] w-auto"
+            className="h-[40px] w-auto"
           />
         </a>
         <a

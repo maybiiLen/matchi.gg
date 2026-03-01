@@ -7,7 +7,7 @@ export default function Footer() {
             <img
               src="/matchibigicon.png"
               alt="Matchi"
-              className="h-[28px] w-auto"
+              className="h-[36px] w-auto"
             />
           </a>
 
