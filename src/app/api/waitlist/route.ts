@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { validateEmail } from "@/lib/validators"
 import { addToAudience, sendWelcomeEmail } from "@/lib/resend"
+import { supabase } from "@/lib/supabase"
 import type { WaitlistResponse } from "@/types"
 
 // In-memory rate limiting
@@ -42,7 +43,14 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
-    const { email } = body
+    const { email, name, gender } = body
+
+    if (!name || !name.trim()) {
+      return NextResponse.json<WaitlistResponse>(
+        { success: false, message: "Name is required." },
+        { status: 400 }
+      )
+    }
 
     const validation = validateEmail(email)
     if (!validation.valid) {
@@ -52,8 +60,38 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    await addToAudience(email.trim())
-    await sendWelcomeEmail(email.trim())
+    if (!gender || !gender.trim()) {
+      return NextResponse.json<WaitlistResponse>(
+        { success: false, message: "Gender is required." },
+        { status: 400 }
+      )
+    }
+
+    // Save to Supabase
+    const { error: dbError } = await supabase.from("waitlist").insert({
+      email: email.trim(),
+      name: name.trim(),
+      gender: gender.trim(),
+    })
+
+    if (dbError) {
+      // Duplicate email
+      if (dbError.code === "23505") {
+        return NextResponse.json<WaitlistResponse>(
+          { success: false, message: "This email is already on the waitlist." },
+          { status: 409 }
+        )
+      }
+      throw dbError
+    }
+
+    // Send welcome email (non-blocking — don't fail signup if email fails)
+    try {
+      await addToAudience(email.trim())
+      await sendWelcomeEmail(email.trim())
+    } catch (emailError) {
+      console.error("Email send error (non-blocking):", emailError)
+    }
 
     return NextResponse.json<WaitlistResponse>(
       { success: true, message: "You're on the list! Check your inbox." },

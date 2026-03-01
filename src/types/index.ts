@@ -5,4 +5,6 @@ export interface WaitlistResponse {
 
 export interface WaitlistRequest {
   email: string
+  name: string
+  gender: string
 }
