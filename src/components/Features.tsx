@@ -60,7 +60,7 @@ const features = [
         {/* Chris */}
         <div className="relative flex-1 max-w-[170px] rounded-[16px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.13)] border border-[#e5e5e5]">
           <img
-            src="/Asian guy.png"
+            src="/asian-guy.png"
             alt="Chris profile"
             className="w-full h-full object-cover object-top"
           />
