@@ -7,9 +7,9 @@ const steps = [
   },
   {
     number: "02",
-    title: "Get matched",
+    title: "Swipe and match",
     description:
-      "Our algorithm pairs you with compatible gamers based on games, play style, and schedule.",
+      "Swipe through profiles of gamers who play what you play. Swipe right to match, tap and hold to view their full profile.",
   },
   {
     number: "03",

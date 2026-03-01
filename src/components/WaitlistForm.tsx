@@ -82,7 +82,7 @@ export default function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[380px]">
+    <form onSubmit={handleSubmit} className="w-full max-w-[560px]">
       <div className="flex flex-col gap-3">
         <input
           type="text"

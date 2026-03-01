@@ -3,11 +3,12 @@ export default function Footer() {
     <footer className="border-t border-[#e5e5e5] bg-white py-10 px-12 max-sm:px-6">
       <div className="max-w-[1120px] mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <a
-            href="/"
-            className="font-[family-name:var(--font-dm-serif)] text-[20px] text-[#1a1a1a]"
-          >
-            Matchi
+          <a href="/">
+            <img
+              src="/matchibigicon.png"
+              alt="Matchi"
+              className="h-[28px] w-auto"
+            />
           </a>
 
           <div className="flex items-center gap-5 font-[family-name:var(--font-inter)] text-[13px] text-[#999999]">

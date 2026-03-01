@@ -7,12 +7,12 @@ export default function Hero() {
         {/* Left — copy + form */}
         <div>
           <h1 className="font-[family-name:var(--font-dm-serif)] font-normal text-[#1a1a1a] text-[42px] sm:text-[56px] md:text-[64px] leading-[1.08] tracking-[-0.02em]">
-            Find Your<br />Duo
+            Play First.<br />Date Second.
           </h1>
 
           <p className="mt-6 font-[family-name:var(--font-inter)] text-[17px] sm:text-[19px] text-[#555555] max-w-[420px] leading-[1.7]">
-            The dating app built for gamers. Match based on the games you play,
-            not just the photos you post.
+            Your first date is a game, not a gamble. Swipe, match, and jump
+            into a game together. No awkward coffee shop silences.
           </p>
 
           <div className="mt-10">

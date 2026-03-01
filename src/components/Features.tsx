@@ -1,9 +1,9 @@
 const features = [
   {
     label: "01",
-    title: "Game-Based Matching",
+    title: "Match on what you play",
     description:
-      "Match with people who play the same games on the same platforms. No more guessing if they're actually a gamer.",
+      "We pair you with people who play the same games on the same platforms. No swiping through profiles hoping they actually own a controller.",
     illustration: (
       <svg viewBox="0 0 480 360" fill="none" className="w-full h-full">
         {/* Two profile cards overlapping */}
@@ -35,9 +35,9 @@ const features = [
   },
   {
     label: "02",
-    title: "Duo Date",
+    title: "Your first date is already planned",
     description:
-      "Play a game together as your first date, right from the app. No awkward silences — just co-op vibes.",
+      "Pick a game, queue up, and play together. That's the date. No small talk over coffee. Just co-op vibes from the start.",
     illustration: (
       <svg viewBox="0 0 480 360" fill="none" className="w-full h-full">
         {/* Game screen */}
@@ -63,9 +63,9 @@ const features = [
   },
   {
     label: "03",
-    title: "Real Profiles",
+    title: "No fake gamertags",
     description:
-      "Auto-sync your Steam, Xbox, PlayStation, and Riot libraries. No fake gamertags.",
+      "Auto-sync your Steam, Xbox, PlayStation, and Riot libraries. Your profile is your real gaming identity, verified.",
     illustration: (
       <svg viewBox="0 0 480 360" fill="none" className="w-full h-full">
         {/* Profile card */}
@@ -101,7 +101,7 @@ export default function Features() {
           Why Matchi
         </h2>
         <p className="font-[family-name:var(--font-inter)] text-[17px] text-[#555555] text-center mt-3">
-          Built different from every dating app you have tried.
+          Skip the awkward part.
         </p>
 
         <div className="mt-20 flex flex-col gap-28">
