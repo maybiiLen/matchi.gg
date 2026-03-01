@@ -85,12 +85,17 @@ export async function POST(request: NextRequest) {
       throw dbError
     }
 
-    // Send welcome email (non-blocking — don't fail signup if email fails)
+    // Run independently so one failure doesn't block the other
     try {
       await addToAudience(email.trim())
+    } catch (audienceError) {
+      console.error("Audience add error (non-blocking):", audienceError)
+    }
+
+    try {
       await sendWelcomeEmail(email.trim())
     } catch (emailError) {
-      console.error("Email send error (non-blocking):", emailError)
+      console.error("Welcome email error (non-blocking):", emailError)
     }
 
     return NextResponse.json<WaitlistResponse>(

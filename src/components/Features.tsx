@@ -1,5 +1,6 @@
 const features = [
   {
+    aspect: "aspect-[4/3]",
     label: "01",
     title: "Match on what you play",
     description:
@@ -24,34 +25,67 @@ const features = [
     ),
   },
   {
+    aspect: "aspect-[4/3]",
     label: "02",
     title: "Your first date is already planned",
     description:
       "Pick a game, queue up, and play together. That's the date. No small talk over coffee. Just co-op vibes from the start.",
     illustration: (
-      <svg viewBox="0 0 480 360" fill="none" className="w-full h-full">
-        {/* Game screen */}
-        <rect x="90" y="50" width="300" height="200" rx="12" fill="#ebebeb" />
-        <rect x="100" y="58" width="280" height="175" rx="4" fill="#e0dfdd" />
-        {/* Game UI elements */}
-        <rect x="120" y="80" width="60" height="8" rx="4" fill="#d5d3cf" />
-        <rect x="120" y="96" width="40" height="8" rx="4" fill="#d5d3cf" />
-        <rect x="300" y="80" width="60" height="8" rx="4" fill="#d5d3cf" />
-        <rect x="320" y="96" width="40" height="8" rx="4" fill="#d5d3cf" />
-        {/* Two cursors */}
-        <polygon points="200,140 200,165 210,158" fill="#1a1a1a" opacity="0.15" />
-        <polygon points="280,130 280,155 270,148" fill="#1a1a1a" opacity="0.1" />
-        {/* Chat bubbles below */}
-        <rect x="110" y="275" width="120" height="36" rx="18" fill="#ebebeb" />
-        <rect x="250" y="275" width="100" height="36" rx="18" fill="#e0dfdd" />
-        <rect x="126" y="287" width="50" height="8" rx="4" fill="#d5d3cf" />
-        <rect x="186" y="287" width="30" height="8" rx="4" fill="#d5d3cf" />
-        <rect x="266" y="287" width="40" height="8" rx="4" fill="#ccc9c4" />
-        <rect x="314" y="287" width="22" height="8" rx="4" fill="#ccc9c4" />
-      </svg>
+      <div className="w-full h-full flex items-stretch justify-center gap-4 px-6 py-4">
+        {/* Jessica */}
+        <div className="relative flex-1 max-w-[170px] rounded-[16px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.13)] border border-[#e5e5e5]">
+          <img
+            src="/Matchi.png"
+            alt="Jessica profile"
+            className="w-full h-full object-cover object-top"
+          />
+          <div className="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/55 backdrop-blur-sm text-white text-[9px] font-medium px-2 py-1 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+            Online now
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-3 pt-12 pb-3">
+            <p className="text-white font-[family-name:var(--font-dm-serif)] text-[15px] leading-tight">
+              Jessica, <span className="font-normal">21</span>
+            </p>
+            <div className="flex flex-wrap gap-1 mt-1.5">
+              {["League of Legends", "Valorant"].map((tag) => (
+                <span key={tag} className="text-white text-[8px] bg-white/15 border border-white/30 backdrop-blur-sm rounded-full px-2 py-0.5">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Chris */}
+        <div className="relative flex-1 max-w-[170px] rounded-[16px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.13)] border border-[#e5e5e5]">
+          <img
+            src="/Asian guy.png"
+            alt="Chris profile"
+            className="w-full h-full object-cover object-top"
+          />
+          <div className="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/55 backdrop-blur-sm text-white text-[9px] font-medium px-2 py-1 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+            Online now
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-3 pt-12 pb-3">
+            <p className="text-white font-[family-name:var(--font-dm-serif)] text-[15px] leading-tight">
+              Chris, <span className="font-normal">23</span>
+            </p>
+            <div className="flex flex-wrap gap-1 mt-1.5">
+              {["Warframe", "Call of Duty"].map((tag) => (
+                <span key={tag} className="text-white text-[8px] bg-white/15 border border-white/30 backdrop-blur-sm rounded-full px-2 py-0.5">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     ),
   },
   {
+    aspect: "aspect-[4/3]",
     label: "03",
     title: "No fake gamertags",
     description:
@@ -117,7 +151,7 @@ export default function Features() {
             >
               {/* Image block */}
               <div className={`${i % 2 === 1 ? "md:[direction:ltr]" : ""}`}>
-                <div className="aspect-[4/3] rounded-[20px] bg-[#f5f3f0] overflow-hidden">
+                <div className={`${feature.aspect} rounded-[20px] bg-[#f5f3f0] overflow-hidden`}>
                   {feature.illustration}
                 </div>
               </div>
