@@ -7,19 +7,21 @@ export const metadata: Metadata = {
 
 export default function ThankYou() {
   return (
-    <main className="min-h-screen bg-background bg-grid flex items-center justify-center px-4">
+    <main className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-md text-center">
-        <div className="text-5xl mb-6 text-accent">GG</div>
-        <h1 className="text-3xl sm:text-4xl font-bold mb-4">
+        <div className="font-[family-name:var(--font-dm-serif)] text-5xl mb-6 text-[#1a1a1a]">
+          GG
+        </div>
+        <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl sm:text-4xl mb-4 text-[#1a1a1a]">
           You&apos;re on the waitlist!
         </h1>
-        <p className="text-body mb-8 leading-relaxed">
+        <p className="font-[family-name:var(--font-inter)] text-[16px] text-[#555555] mb-8 leading-relaxed">
           Check your inbox for a confirmation email. We&apos;ll let you know
           when it&apos;s your turn to find your duo.
         </p>
         <a
           href="/"
-          className="inline-block rounded-xl bg-accent hover:bg-accent-dark px-6 py-3 font-medium transition-colors"
+          className="inline-block rounded-[10px] bg-[#1a1a1a] hover:bg-[#333333] px-6 py-3 font-[family-name:var(--font-inter)] font-medium text-[14px] text-white transition-colors"
         >
           Back to home
         </a>

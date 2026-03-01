@@ -21,26 +21,34 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          How It <span className="text-accent">Works</span>
+    <section className="border-t border-[#e5e5e5] pt-12 pb-24 px-6">
+      <div className="max-w-[1120px] mx-auto">
+        <h2 className="font-[family-name:var(--font-dm-serif)] font-normal text-[40px] text-[#1a1a1a] text-center">
+          How It Works
         </h2>
-        <p className="text-body text-center mb-16 max-w-md mx-auto">
+        <p className="font-[family-name:var(--font-inter)] text-[17px] text-[#555555] text-center mt-3">
           Three steps to finding your player two.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-0">
           {steps.map((step, i) => (
-            <div key={step.number} className="relative">
-              {/* Connector line on desktop */}
-              {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-px bg-gradient-to-r from-accent/30 to-transparent" />
-              )}
-              <div className="text-5xl font-bold text-accent/20 mb-4">
+            <div
+              key={step.number}
+              className={`relative px-8 py-10 ${
+                i < steps.length - 1
+                  ? "md:border-r md:border-[#e5e5e5] max-md:border-b max-md:border-[#e5e5e5]"
+                  : ""
+              }`}
+            >
+              <div className="font-[family-name:var(--font-dm-serif)] font-normal text-[56px] text-[#e5e5e5] leading-none">
                 {step.number}
               </div>
-              <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-              <p className="text-body leading-relaxed">{step.description}</p>
+              <h3 className="font-[family-name:var(--font-inter)] font-semibold text-[17px] text-[#1a1a1a] mt-4">
+                {step.title}
+              </h3>
+              <p className="font-[family-name:var(--font-inter)] text-[15px] text-[#555555] leading-[1.65] mt-2">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>

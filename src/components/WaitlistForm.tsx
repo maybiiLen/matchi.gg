@@ -47,9 +47,9 @@ export default function WaitlistForm() {
 
   if (state === "success") {
     return (
-      <div className="flex items-center gap-2 rounded-xl bg-accent/10 border border-accent/20 px-6 py-4">
-        <span className="text-accent text-lg">&#10003;</span>
-        <p className="text-body">
+      <div className="inline-flex items-center gap-2 rounded-[10px] bg-[#f0efed] border border-[#e5e5e5] px-5 py-3">
+        <span className="text-[#1a1a1a] text-base">&#10003;</span>
+        <p className="font-[family-name:var(--font-inter)] text-[15px] text-[#1a1a1a]">
           {message || "You're in. Check your inbox."}
         </p>
       </div>
@@ -57,8 +57,8 @@ export default function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
-      <div className="flex flex-col sm:flex-row gap-3">
+    <form onSubmit={handleSubmit}>
+      <div className="inline-flex flex-col sm:flex-row items-stretch gap-3">
         <input
           type="email"
           value={email}
@@ -67,19 +67,21 @@ export default function WaitlistForm() {
             if (state === "error") setState("idle")
           }}
           placeholder="Enter your email"
-          className="flex-1 rounded-xl bg-surface border border-white/10 px-4 py-3 text-white placeholder:text-body/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-colors"
+          className="w-full sm:w-[310px] h-[52px] bg-white border-[1.5px] border-[#d0d0d0] rounded-[10px] px-4 text-[#1a1a1a] font-[family-name:var(--font-inter)] text-[15px] placeholder:text-[#aaaaaa] focus:outline-none focus:border-[#1a1a1a] transition-colors"
           disabled={state === "loading"}
         />
         <button
           type="submit"
           disabled={state === "loading"}
-          className="glow-button rounded-xl bg-accent hover:bg-accent-dark px-6 py-3 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer"
+          className="h-[52px] px-8 bg-[#1a1a1a] hover:bg-[#333333] text-white font-[family-name:var(--font-inter)] text-[15px] font-medium rounded-[10px] transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer"
         >
           {state === "loading" ? "Joining..." : "Join the Waitlist"}
         </button>
       </div>
       {state === "error" && (
-        <p className="mt-2 text-sm text-red-400">{message}</p>
+        <p className="mt-2 text-sm text-red-500 font-[family-name:var(--font-inter)]">
+          {message}
+        </p>
       )}
     </form>
   )
